@@ -28,7 +28,7 @@ define([ 'use!underscore' ], function(_) {
     it("you should be able to alter the context in which a method runs", function() {
       fn = function(){
         return a.sayIt.apply(b);
-      }
+      };
     
       // define a function for fn so that the following will pass
       expect(fn()).to.be('Yo, Rebecca!');
@@ -37,7 +37,7 @@ define([ 'use!underscore' ], function(_) {
     it("you should be able to alter multiple objects at once", function() {
       fn = function(greeting){
         C.prototype['greeting'] = greeting;
-      }
+      };
     
       // define a function for fn so that the following will pass
       var obj1 = new C('Rebecca'),
@@ -62,7 +62,7 @@ define([ 'use!underscore' ], function(_) {
         }
         
         return props;
-      }
+      };
       
       // define a function for fn so that the following will pass
       var C = function() {
