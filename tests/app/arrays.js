@@ -38,8 +38,14 @@ define([ 'use!underscore' ], function(_) {
 
     it("you should be able to remove an item from an array", function() {
       
-      fn = function(a, p) {
-        a.splice(p-1,1);
+      // a = array, e = element *value* to remove
+      fn = function(a, e) {
+        a.forEach( function(v, i) {
+          if(v === e){
+            a.splice(i,1);
+          }
+        });
+        
         return a;
       };
       
@@ -78,11 +84,9 @@ define([ 'use!underscore' ], function(_) {
 
     it("you should be able to add an item anywhere in an array", function() {
       
-      fn = function(a, i, p) { 
-        var start = a.slice(0, p),
-            end = a.slice(p);
-        start.push(i);
-        return start.concat(end);
+      fn = function(a, e, i) { 
+        a.splice(i, 0, e); // 2nd param = 0, no elements removed
+        return a;
       };
       
       // define a function for fn so that the following will pass
